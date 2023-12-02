@@ -2,21 +2,28 @@
 <html>
   <head>
     <title>Faxgerät goes BRRRR</title>
-    <meta name="application-name" content="Faxgerät goes BRRRR"/>
-    <meta name="description" content="Fax it, baby!"/>
-    <meta name="author" content="Institute für Deutsches Kulturgut Development"/>
+    <meta name="application-name" content="Faxgerät goes BRRRR" />
+    <meta name="description" content="Fax it, baby!" />
+    <meta
+      name="author"
+      content="Institut für Deutsches Kulturgut Development"
+    />
     <link rel="stylesheet" href="./style/index.css" type="" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./js/index.js"></script>
   </head>
-  <body class="">
+  <body>
     <div>
       <div class="chart">
         <canvas id="myChart"></canvas>
+        <p>Quelle: bitkom research</p>
       </div>
 
       <div class="content">
-        <h1 class="content__headline">Faxgerät goes <span id="brrr" class="content__brr">BRRR</span></h1>
+        <h1 class="content__headline">
+          Faxgerät goes not more
+          <span id="brrr" class="content__brr">BRRR</span>
+        </h1>
         <input
           type="range"
           min="1"
@@ -27,8 +34,20 @@
         />
       </div>
     </div>
-    <div class="faxmachine">
-      <img src="assets/faxgerät.png" />
+
+    <div class="animation-area">
+      <div class="faxmachine">
+        <img src="assets/faxgerät.png" />
+      </div>
+
+      <div class="paper-container">
+        <div id="paper-pull"></div>
+        <div class="paper"></div>
+        <div
+          class="paper-fall"
+          style="--rotation: -30deg; --endPosLeft: 30px"
+        ></div>
+      </div>
     </div>
     <footer></footer>
   </body>

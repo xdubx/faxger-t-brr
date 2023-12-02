@@ -1,23 +1,20 @@
 // VANILLA SCRIPT BESTE
 
-/**
- *
- */
-function fetch() {}
-
 function updatePage(pos) {
   const max = pos / 10;
   updateBrrText(max);
 
   const content = document.getElementsByClassName("content")[0];
-  const faxgereat = document.getElementsByClassName("faxmachine")[0];
-
+  const animationArea = document.getElementsByClassName("animation-area")[0];
+  const chart = document.getElementsByClassName("chart")[0];
   if (max > 3) {
     addShake(content, max);
-    addShake(faxgereat, max);
+    addShake(animationArea, max);
+    addShake(chart, max);
   } else {
     removeShake(content);
-    removeShake(faxgereat);
+    removeShake(animationArea);
+    removeShake(chart);
   }
   const brrSpan = document.getElementById("brrr");
   if (max > 6) {
@@ -94,3 +91,19 @@ window.addEventListener("load", function () {
   console.log("All assets are loaded");
   createChart();
 });
+
+// paper generator
+
+function generatePaper() {
+  const container = document.getElementsByClassName("paper-container")[0];
+  const paper = document.createElement("div");
+  container.append(paper);
+
+  paper.classList.add('paper-fall')
+
+  // random number generator between -10 and 10
+  const rotation = Math.random() * (20 - 20) + 20;
+  const endPosLeft = Math.random() * (60 - 30) + 30;
+  paper.style.setProperty("--rotation", `${rotation}deg`);
+  paper.style.setProperty("--endPosLeft", `${endPosLeft}px`);
+}
