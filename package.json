@@ -1,0 +1,13 @@
+{
+  "name": "faxgeraet",
+  "version": "1.0.0",
+  "description": "Deutsche Bürokratie as a SPA",
+  "scripts": {
+    "dev": "browser-sync start --server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.28.3"
+  }
+}
