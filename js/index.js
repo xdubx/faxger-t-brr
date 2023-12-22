@@ -90,6 +90,10 @@ function createChart() {
 window.addEventListener("load", function () {
   console.log("All assets are loaded");
   createChart();
+
+  setInterval( () => {
+    generateBrSpan();
+  }, 800);
 });
 
 // paper generator
@@ -99,11 +103,34 @@ function generatePaper() {
   const paper = document.createElement("div");
   container.append(paper);
 
-  paper.classList.add('paper-fall')
+  paper.classList.add("paper-fall");
 
   // random number generator between -10 and 10
-  const rotation = Math.random() * (20 - 20) + 20;
+  const rotation = Math.random() * 20;
+  const rotationDirection = Math.random() > 0.5 ? -1 : 1;
   const endPosLeft = Math.random() * (60 - 30) + 30;
-  paper.style.setProperty("--rotation", `${rotation}deg`);
+  paper.style.setProperty("--rotation", `${rotation*rotationDirection}deg`);
   paper.style.setProperty("--endPosLeft", `${endPosLeft}px`);
+}
+
+function generateBrSpan() {
+  const container = document.getElementsByClassName("br-container")[0];
+  const br = document.createElement("div");
+  br.innerText = "BRR";
+  container.append(br);
+  br.classList.add("br-left");
+
+  const rotation = Math.random() * 20;
+  const rotationDirection = Math.random() > 0.5 ? -1 : 1;
+  const endPosTop = Math.random() * (80 - 40) + 40;
+
+  const endPosLeft = Math.random() * (80 - 20) + 20;
+  // pos
+  br.style.setProperty("--endPosTop", `${endPosTop}px`);
+  br.style.setProperty("--endPosLeft", `${endPosLeft}px`);
+  br.style.setProperty("--rotation", `${rotation * rotationDirection}deg`);
+
+  setTimeout(() => {
+    br.remove();
+  }, 500);
 }
